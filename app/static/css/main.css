@@ -1,0 +1,64 @@
+body {
+  overflow-x: hidden;
+  font-family: sans-serif;
+  margin-bottom: 75px;
+}
+
+.messages {
+  position: fixed;
+  top: 90px;
+  left: 10px;
+  font-weight: bold;
+  font-family: serif;
+  color: darkred;
+  list-style-type: none;
+}
+
+.card {
+  padding: 15px;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  background-color: White;
+  margin-bottom: 100px;
+}
+
+.home-search {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.top-margin-lg {
+  margin-top: 50px;
+}
+
+.carousel {
+  width: 75%;
+  margin: 30px auto;
+  margin-bottom: 10px;
+}
+
+h4 {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+  padding: 10px;
+}
+
+table {
+  margin: 25px auto;
+}
+
+footer {
+  background-color: #F9F9F9;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding-top: 15px;
+}
+
+footer p {
+  color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+}

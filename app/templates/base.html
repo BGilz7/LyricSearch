@@ -1,0 +1,91 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+  Lyrics Search
+{% endblock %}
+
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="../static/css/main.css">
+{% endblock %}
+
+
+{% block scripts %}
+  {{ super() }}
+{% endblock %}
+
+{% block navbar %}
+<div class="row">
+  <div class="col-md-12">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('index') }}">Home<span class="sr-only">(current)</span></a>
+          </li>
+
+          {% if current_user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('favorites', username=current_user.username) }}">Favorites</a>
+          </li>
+          {% endif %}
+
+
+          {% if current_user.is_authenticated %}
+            <!--Put logout link here -->
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+            </li>
+
+          {% else %}
+          {% if title == 'Login' %}
+            <li class="nav-item active">
+          {% else %}
+            <li class="nav-item">
+          {% endif %}
+            <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+          </li>
+          {% if title == 'Register' %}
+            <li class="nav-item active">
+          {% else %}
+            <li class="nav-item">
+          {% endif %}
+            <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+  </div> <!-- ends col 12 for nav -->
+</div> <!-- ends row for nav -->
+{% endblock %}
+
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+  {% block app_content %}{% endblock %}
+
+  <footer>
+    <div class="row">
+      <div class="col-md-12">
+        <p>© LyricSearch</p>
+      </div> <!-- ends col 12 -->
+    </div> <!-- ends row -->
+  </footer>
+
+{% endblock %}
